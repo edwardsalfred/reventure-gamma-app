@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
   // Step 2: Create presentation with Gamma
   let gammaGenerationId: string;
   try {
-    const result = await createPresentation(proposalText, meetingTitle);
+    const result = await createPresentation(proposalText);
     gammaGenerationId = result.generationId;
   } catch (err: unknown) {
     const axiosErr = err as { response?: { status?: number; data?: unknown }; message?: string };

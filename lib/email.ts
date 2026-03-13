@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const ADMIN_EMAIL = "alfred@reventure.ai";
 const FROM_EMAIL = "Reventure AI <onboarding@resend.dev>";
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://reventure-gamma-app.vercel.app";
 
 export async function sendAdminNewUserNotification(
   username: string,

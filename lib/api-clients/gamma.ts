@@ -15,14 +15,12 @@ function getClient() {
 }
 
 export async function createPresentation(
-  proposalText: string,
-  meetingTitle: string
+  proposalText: string
 ): Promise<{ generationId: string }> {
   const client = getClient();
 
   const { data } = await client.post("/generations", {
     inputText: proposalText,
-    title: meetingTitle,
     textMode: "preserve",
   });
 

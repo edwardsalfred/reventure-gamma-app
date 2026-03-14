@@ -9,7 +9,7 @@ export async function GET() {
   }
 
   const clientId = process.env.READ_AI_CLIENT_ID;
-  const redirectUri = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/auth/readai/callback`;
+  const redirectUri = `${process.env.NEXT_PUBLIC_BASE_URL || "https://reventure-gamma-app.vercel.app"}/api/auth/readai/callback`;
 
   const url = new URL("https://authn.read.ai/oauth2/authorize");
   url.searchParams.set("client_id", clientId!);

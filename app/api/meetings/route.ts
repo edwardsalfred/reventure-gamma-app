@@ -15,16 +15,23 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(data);
   } catch (err: unknown) {
     console.error("Read.ai meetings error:", err);
-    const status =
-      (err as { response?: { status?: number } })?.response?.status || 500;
+    const axiosErr = err as { response?: { status?: number }; message?: string };
+    const status = axiosErr?.response?.status || 500;
     if (status === 429) {
       return NextResponse.json(
         { error: "Rate limit reached. Please wait a moment and try again." },
         { status: 429 }
       );
     }
+    if (status === 401) {
+      return NextResponse.json(
+        { error: "Read.ai token expired. Please re-authenticate at /api/auth/readai" },
+        { status: 502 }
+      );
+    }
+    const detail = axiosErr?.message || "Unknown error";
     return NextResponse.json(
-      { error: "Failed to fetch meetings from Read.ai" },
+      { error: `Failed to fetch meetings from Read.ai: ${detail}` },
       { status: 502 }
     );
   }

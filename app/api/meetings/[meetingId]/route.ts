@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSessionFromRequest } from "@/lib/auth/session";
-import { getMeetingWithTranscript } from "@/lib/api-clients/readai";
+import { getMeetingWithTranscript } from "@/lib/api-clients/fireflies";
 
 export async function GET(
   req: NextRequest,
@@ -15,7 +15,7 @@ export async function GET(
     const data = await getMeetingWithTranscript(params.meetingId);
     return NextResponse.json(data);
   } catch (err: unknown) {
-    console.error("Read.ai meeting detail error:", err);
+    console.error("Fireflies meeting detail error:", err);
     const status =
       (err as { response?: { status?: number } })?.response?.status || 500;
     if (status === 404) {

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { ErrorMessage } from "@/components/ui/ErrorMessage";
 import { GenerationProgress } from "./GenerationProgress";
-import { TranscriptLine } from "@/types/readai";
+import { TranscriptLine } from "@/types/fireflies";
 
 type GenerationState = "idle" | "generating" | "polling" | "done" | "error" | "timeout";
 

@@ -1,4 +1,4 @@
-export interface ReadAiMeeting {
+export interface FirefliesMeeting {
   id: string;
   title: string;
   date: string;

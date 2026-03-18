@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { ErrorMessage } from "@/components/ui/ErrorMessage";
-import { ReadAiMeeting } from "@/types/readai";
+import { FirefliesMeeting } from "@/types/fireflies";
 
 function formatDuration(seconds: number): string {
   const h = Math.floor(seconds / 3600);
@@ -26,7 +26,7 @@ function formatDate(dateStr: string): string {
 }
 
 export function MeetingsList() {
-  const [meetings, setMeetings] = useState<ReadAiMeeting[]>([]);
+  const [meetings, setMeetings] = useState<FirefliesMeeting[]>([]);
   const [nextCursor, setNextCursor] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -82,7 +82,7 @@ export function MeetingsList() {
     return (
       <div className="text-center py-16 text-gray-500">
         <p className="text-lg font-medium mb-1">No meetings found</p>
-        <p className="text-sm">Your Read.ai recordings will appear here.</p>
+        <p className="text-sm">Your Fireflies recordings will appear here.</p>
       </div>
     );
   }

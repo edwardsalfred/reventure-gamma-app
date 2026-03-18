@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getMeetingWithTranscript } from "@/lib/api-clients/readai";
+import { getMeetingWithTranscript } from "@/lib/api-clients/fireflies";
 import { TranscriptViewer } from "@/components/meetings/TranscriptViewer";
 import { GenerateButton } from "@/components/generate/GenerateButton";
 import { Card, CardBody, CardHeader } from "@/components/ui/Card";
@@ -84,15 +84,17 @@ export default async function MeetingDetailPage({ params }: Props) {
                   </dd>
                 </div>
               )}
-              {meeting.participants.length > 0 && (
-                <div>
-                  <dt className="text-gray-500">Participants</dt>
-                  <dd className="font-medium text-gray-900 mt-0.5">
-                    {meeting.participants.map((p) => p.name).join(", ")}
-                  </dd>
-                </div>
-              )}
             </dl>
+            {meeting.participants.length > 0 && (
+              <div className="mt-4 text-sm">
+                <dt className="text-gray-500">Participants</dt>
+                <dd className="font-medium text-gray-900 mt-0.5 flex flex-wrap gap-x-3 gap-y-1">
+                  {meeting.participants.map((p, i) => (
+                    <span key={i}>{p.name}</span>
+                  ))}
+                </dd>
+              </div>
+            )}
           </CardBody>
         </Card>
 

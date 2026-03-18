@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { TranscriptLine } from "@/types/readai";
+import { TranscriptLine } from "@/types/fireflies";
 import { Button } from "@/components/ui/Button";
 
 interface TranscriptViewerProps {

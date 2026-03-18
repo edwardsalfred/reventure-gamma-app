@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { PROPOSAL_SYSTEM_PROMPT } from "@/lib/prompts/proposal-system-prompt";
-import { TranscriptLine } from "@/types/readai";
+import { TranscriptLine } from "@/types/fireflies";
 
 function formatTranscript(lines: TranscriptLine[]): string {
   return lines

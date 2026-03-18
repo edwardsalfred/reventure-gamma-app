@@ -3,7 +3,7 @@ import { sql } from "@vercel/postgres";
 import { getSessionFromRequest } from "@/lib/auth/session";
 import { generateProposal } from "@/lib/api-clients/anthropic";
 import { createPresentation } from "@/lib/api-clients/gamma";
-import { TranscriptLine } from "@/types/readai";
+import { TranscriptLine } from "@/types/fireflies";
 
 export async function POST(req: NextRequest) {
   const session = await getSessionFromRequest(req);
